@@ -1,4 +1,4 @@
-use std::{cell::RefCell, default};
+use std::cell::RefCell;
 
 thread_local!{
     static WPISY: RefCell<Vec<String>> = RefCell::default();
