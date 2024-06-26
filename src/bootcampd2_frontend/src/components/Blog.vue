@@ -1,8 +1,10 @@
 <template>
     <div>
+        <h2 class="text-indigo-700">Wpisy na bloga</h2>
         <button @click="pobierzWpisy">refresh</button>
-        siema blog!
-        {{ wpisy }}
+        <div v-for="wpis in wpisy">
+            <p>{{ wpis }}</p>
+        </div>
         <input v-model="nowyBlog" type="text">
         <button @click="dodajWpisy">dodaj</button>
     </div>
@@ -26,6 +28,9 @@ export default {
             this.wpisy = await bootcampd2_backend.odczytaj_wpisy();
         }
     },
+    async mounted(){
+        this.pobierzWpisy()
+    }
 
 }
 </script>
