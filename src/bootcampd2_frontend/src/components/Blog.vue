@@ -1,12 +1,19 @@
 <template>
     <div>
         <h2 class="text-indigo-700">Wpisy na bloga</h2>
-        <button @click="pobierzWpisy">refresh</button>
-        <div v-for="wpis in wpisy">
-            <p>{{ wpis }}</p>
+        <div class="w-100 flex flex-row-reverse">
+            <button @click="pobierzWpisy" class="bg-blue-600 rounded text-white-1000 p-4">refresh</button>
         </div>
-        <input v-model="nowyBlog" type="text">
-        <button @click="dodajWpisy">dodaj</button>
+        <div class="grid gap-4 mx-6 my-4">
+            <div v-for="(wpis, index) in wpisy" class="drop-shadow-2xl bg-stone-300 p-4">
+                <p>id: {{ index }}</p>
+                <p>{{ wpis }}</p>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center">
+            <input v-model="nowyBlog" type="text" class="border-4 border-blue-600 p-4">
+            <button @click="dodajWpisy" class="bg-blue-600 rounded text-white-1000 p-4">dodaj</button>
+        </div>
     </div>
 </template>
 
